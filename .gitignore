@@ -1,0 +1,7 @@
+.*
+!.eslintrc.js
+!.gitignore
+!.prettierrc
+/coverage
+/dist
+/node_modules
