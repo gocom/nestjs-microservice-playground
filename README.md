@@ -49,6 +49,7 @@ Things I would like to do:
 5. Implement authentication functions using both normal tokens and JWT.
 6. Try-out production-ready containers that could be made scale up to
    thousands of request a second.
+7. Write unit tests, and setup CI.
 
 Also:
 
