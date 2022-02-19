@@ -1,6 +1,13 @@
-.PHONY: all clean configure help start stop
+.PHONY: all build clean configure help lint-fix start stop test
 
 all: start
+
+build:
+	npm run build
+
+lint-fix:
+	npm run format
+	npm run lint
 
 configure:
 ifeq (,$(wildcard ./.env))
@@ -17,6 +24,9 @@ start: node_modules configure
 stop:
 	docker-compose stop
 
+test:
+	npm run test:cov
+
 clean:
 	rm -rf .env
 	rm -rf node_modules
@@ -29,11 +39,23 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo ""
+	@echo "  $$ make all"
+	@echo "  Build and start development server"
+	@echo ""
+	@echo "  $$ make build"
+	@echo "  Build NestJS application"
+	@echo ""
+	@echo "  $$ make lint-fix"
+	@echo "  Lint and fix code style"
+	@echo ""
 	@echo "  $$ make start"
 	@echo "  Start development server"
 	@echo ""
 	@echo "  $$ make stop"
 	@echo "  Stop development server"
+	@echo ""
+	@echo "  $$ make test"
+	@echo "  Run unit tests"
 	@echo ""
 	@echo "  $$ make clean"
 	@echo "  Delete installed Node modules"
