@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mariadb:10.7.1
+    networks:
+      - mysql
+    env_file:
+      - .env
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer:4.8.1-standalone
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    networks:
+      - mysql
+networks:
+  mysql:

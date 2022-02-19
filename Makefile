@@ -1,14 +1,21 @@
-.PHONY: all clean help start
+.PHONY: all clean configure help start
 
 all: start
+
+configure:
+ifeq (,$(wildcard ./.env))
+    cp .env.template .env
+endif
 
 node_modules:
 	npm install
 
-start: node_modules
+start: node_modules configure
+	docker-compose up -d
 	npm run start:dev
 
 clean:
+	rm -rf .env
 	rm -rf node_modules
 
 help:
