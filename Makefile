@@ -1,4 +1,4 @@
-.PHONY: all clean configure help start
+.PHONY: all clean configure help start stop
 
 all: start
 
@@ -14,6 +14,9 @@ start: node_modules configure
 	docker-compose up -d
 	npm run start:dev
 
+stop:
+	docker-compose stop
+
 clean:
 	rm -rf .env
 	rm -rf node_modules
@@ -28,6 +31,9 @@ help:
 	@echo ""
 	@echo "  $$ make start"
 	@echo "  Start development server"
+	@echo ""
+	@echo "  $$ make stop"
+	@echo "  Stop development server"
 	@echo ""
 	@echo "  $$ make clean"
 	@echo "  Delete installed Node modules"
