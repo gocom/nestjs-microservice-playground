@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { NotesModule } from './notes/notes.module';
 import 'dotenv/config';
+import {NoteEntity} from "./notes/model/note.entity";
 
 const {
   MYSQL_HOSTNAME,
@@ -20,7 +21,9 @@ const {
       username: MYSQL_USER,
       password: MYSQL_PASSWORD,
       database: MYSQL_DATABASE,
-      entities: [],
+      entities: [
+        NoteEntity,
+      ],
       synchronize: true,
     }),
     NotesModule,
