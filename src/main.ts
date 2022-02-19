@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
       .setTitle('Demo')
-      .setDescription('Nest.js API test')
+      .setDescription('NestJS API')
       .setVersion('1.0')
       .build();
 
