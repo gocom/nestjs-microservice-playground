@@ -10,11 +10,11 @@ Install
 After cloning the repository:
 
 ```shell
-$ make
+$ make start
 ```
 
-The above will install Node modules using npm and launch the development
-service.
+The above will install dependencies using npm and launch the development
+server.
 
 Swagger
 -----

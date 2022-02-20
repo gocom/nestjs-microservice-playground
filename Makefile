@@ -1,18 +1,24 @@
-.PHONY: all build clean configure help lint-fix start stop test
+.PHONY: all build clean configure help lint lint-fix start stop test
 
-all: start
+all: build
 
-build:
+build: node_modules configure
 	npm run build
 
-lint-fix:
-	npm run format
-	npm run lint
+clean:
+	rm -rf .env
+	rm -rf node_modules
 
 configure:
 ifeq (,$(wildcard ./.env))
     cp .env.template .env
 endif
+
+lint: node_modules
+	npm run lint
+
+lint-fix: node_modules
+	npm run lint-fix
 
 node_modules:
 	npm install
@@ -24,12 +30,8 @@ start: node_modules configure
 stop:
 	docker-compose stop
 
-test:
+test: node_modules
 	npm run test:cov
-
-clean:
-	rm -rf .env
-	rm -rf node_modules
 
 help:
 	@echo "Manage project"
@@ -39,11 +41,14 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo ""
-	@echo "  $$ make all"
-	@echo "  Build and start development server"
-	@echo ""
 	@echo "  $$ make build"
 	@echo "  Build NestJS application"
+	@echo ""
+	@echo "  $$ make configure"
+	@echo "  Configure application"
+	@echo ""
+	@echo "  $$ make lint"
+	@echo "  Lint code style"
 	@echo ""
 	@echo "  $$ make lint-fix"
 	@echo "  Lint and fix code style"

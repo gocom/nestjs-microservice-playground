@@ -1,6 +1,7 @@
 .*
 !.env.template
 !.eslintrc.js
+!.github
 !.gitignore
 !.prettierrc
 /coverage
