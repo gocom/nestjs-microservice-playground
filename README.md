@@ -1,6 +1,8 @@
 NestJS API test
 =====
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=gocom_nestjs-microservice-playground&metric=coverage)](https://sonarcloud.io/dashboard?id=gocom_nestjs-microservice-playground) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gocom_nestjs-microservice-playground&metric=alert_status)](https://sonarcloud.io/dashboard?id=gocom_nestjs-microservice-playground)
+
 Personal [NestJS](https://nestjs.com/) API playground and test. Using this
 to try out, learn and evaluate NestJS for microservice development.
 
