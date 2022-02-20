@@ -11,7 +11,7 @@ clean:
 
 configure:
 ifeq (,$(wildcard ./.env))
-    cp .env.template .env
+	cp .env.template .env
 endif
 
 lint: node_modules
