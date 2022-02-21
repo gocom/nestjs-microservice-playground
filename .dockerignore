@@ -1,0 +1,13 @@
+.*
+!.dockerignore
+coverage
+node_modules
+npm-debug.log
+ormconfig.json
+README.md
+sonar-project.properties
+development.env
+production.env
+docker-compose.development.yml
+docker-compose.production.yml
+docker-compose.yml
